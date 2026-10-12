@@ -1,16 +1,14 @@
 import React from "react";
-// State
-import { useGetUsersQuery } from "../app/apiSlice";
+// Config
+import { githubUsername } from "../config";
 // Utils
 import { updateTitle } from "../utils";
 import "./Home.css";
 // #region component
 const Home = () => {
-  const { data: userData } = useGetUsersQuery();
-
   React.useEffect(() => {
-    updateTitle(`${userData.name} | Portfolio`);
-  }, [userData]);
+    updateTitle(githubUsername);
+  }, []);
 
   return (
     <>

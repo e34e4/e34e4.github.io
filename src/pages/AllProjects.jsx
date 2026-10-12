@@ -4,7 +4,7 @@ import styled from "styled-components";
 // State
 import { useSelector } from "react-redux";
 import { selectProjects } from "../app/projectsSlice";
-import { useGetUsersQuery, useGetProjectsQuery } from "../app/apiSlice";
+import { useGetProjectsQuery } from "../app/apiSlice";
 // Icons
 import { Icon } from "@iconify/react/dist/iconify.js";
 // Components
@@ -20,6 +20,8 @@ import Loading from "../components/Loading";
 import Title from "../components/Title";
 import ProjectCard from "../components/ProjectCard";
 import BackToTop from "../components/BackToTop";
+// Config
+import { githubUsername } from "../config";
 // Utils
 import { updateTitle } from "../utils";
 
@@ -44,13 +46,12 @@ const AllProjects = () => {
   const [pageItems, setPageItems] = React.useState([]);
   const [activePage, setActivePage] = React.useState(1);
   const data = useSelector(selectProjects);
-  const { data: userData } = useGetUsersQuery();
   const { isLoading, isSuccess, isError, error } = useGetProjectsQuery();
   let content;
 
   React.useEffect(() => {
-    updateTitle(`${userData.name} | All Projects`);
-  }, [userData]);
+    updateTitle(`${githubUsername} | All Projects`);
+  }, []);
 
   React.useEffect(() => {
     if (searchInput !== "") {
