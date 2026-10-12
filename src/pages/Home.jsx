@@ -1,6 +1,8 @@
 import React from "react";
 // Config
 import { githubUsername } from "../config";
+// Components
+import MatrixRain from "../components/MatrixRain";
 // Utils
 import { updateTitle } from "../utils";
 import "./Home.css";
@@ -13,6 +15,7 @@ const Home = () => {
   return (
     <>
       <div className="home">
+        <MatrixRain />
         <a
           className="title anote-link"
           href="https://github.com/e34e4/anote"
