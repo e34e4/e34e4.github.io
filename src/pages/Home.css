@@ -16,11 +16,74 @@
   animation: glow 3s ease-in-out infinite alternate;
 }
 
+/* The link to the aNote repository */
+.anote-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  text-decoration: none;
+  cursor: pointer;
+  transform-origin: center;
+}
+
+.anote-link .label {
+  display: inline-block;
+}
+
+.anote-link .pencil {
+  display: inline-block;
+  font-size: 0.85em;
+  transition: transform 0.2s ease;
+}
+
+/* Keep the glow and add a jelly wobble while hovering */
+.anote-link:hover,
+.anote-link:focus-visible {
+  color: #ffe083;
+  animation: glow 1.5s ease-in-out infinite alternate,
+    jelly 0.9s ease-in-out infinite;
+}
+
+/* The pencil scribbles around while hovering */
+.anote-link:hover .pencil,
+.anote-link:focus-visible .pencil {
+  animation: scribble 0.35s ease-in-out infinite;
+}
+
 @keyframes glow {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #a8e6cf, 0 0 30px #a8e6cf;
   }
   to {
     text-shadow: 0 0 20px #fff, 0 0 30px #056608, 0 0 40px #056608;
+  }
+}
+
+@keyframes jelly {
+  0%,
+  100% {
+    transform: scale(1, 1) rotate(0deg);
+  }
+  20% {
+    transform: scale(1.12, 0.88) rotate(-2.5deg);
+  }
+  40% {
+    transform: scale(0.9, 1.12) rotate(2.5deg);
+  }
+  60% {
+    transform: scale(1.08, 0.94) rotate(-1.5deg);
+  }
+  80% {
+    transform: scale(0.96, 1.05) rotate(1.5deg);
+  }
+}
+
+@keyframes scribble {
+  0%,
+  100% {
+    transform: rotate(-18deg) translateY(0);
+  }
+  50% {
+    transform: rotate(18deg) translateY(-8px);
   }
 }

@@ -1,15 +1,6 @@
 import React from "react";
 // State
 import { useGetUsersQuery } from "../app/apiSlice";
-// Components
-import Hero from "../components/Hero";
-import AboutMe from "../components/AboutMe";
-import Skills from "../components/Skills";
-import Projects from "../components/Projects";
-import Contact from "../components/Contact";
-import BackToTop from "../components/BackToTop";
-// Config
-import { filteredProjects, moreInfo } from "../config";
 // Utils
 import { updateTitle } from "../utils";
 import "./Home.css";
@@ -24,7 +15,18 @@ const Home = () => {
   return (
     <>
       <div className="home">
-      <h1 className="title">метопролол и соталол</h1>
+        <a
+          className="title anote-link"
+          href="https://github.com/e34e4/anote"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="aNote on GitHub"
+        >
+          <span className="pencil" role="img" aria-hidden="true">
+            ✏️
+          </span>
+          <span className="label">aNote</span>
+        </a>
       </div>
     </>
   );
